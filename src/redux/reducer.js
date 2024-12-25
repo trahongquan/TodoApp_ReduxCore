@@ -7,12 +7,12 @@ const initState = {
     todoList : [
         {id: 1, name: 'Learn x', complete: false, priority: 'Medium'},
         {id: 2, name: 'Learn y', complete: true, priority: 'High'},
-        {id: 2, name: 'Learn z', complete: false, priority: 'Low'},
+        {id: 3, name: 'Learn z', complete: false, priority: 'Low'},
     ]
 }
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'todoLisst/addTodo':
+        case 'todoList/addTodo':
             return {
                 ...state,
                 todoList: [
@@ -20,7 +20,6 @@ const rootReducer = (state = initState, action) => {
                     action.payload //Thêm vào phía cuối của todoList
                 ]
             }
-
         default:
             return state
     }
