@@ -1,5 +1,5 @@
 const initState = {
-    filter: {
+    filters: {
         search: '',
         status: '',
         priority: []
@@ -20,6 +20,14 @@ const rootReducer = (state = initState, action) => {
                     action.payload //Thêm vào phía cuối của todoList
                 ]
             }
+        case 'filters/searchFilterChange':
+        return {
+            ...state,
+            filters: {
+                ...state.filters,
+                search: action.payload
+            }
+        }
         default:
             return state
     }
