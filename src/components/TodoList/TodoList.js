@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addTodo } from '../../redux/actions';
-import { todoListSelector } from '../../redux/selectors';
+import { todoListRemainingSelector } from '../../redux/selectors';
+// import { todoListSelector } from '../../redux/selectors';
 import Todo from '../Todo/Todo';
 
 export default function TodoList() {
   const dispatch = useDispatch();
-  const todoList = useSelector(todoListSelector)
+  const todoList = useSelector(todoListRemainingSelector) // lấy ra từ store để dùng
+  // const todoList = useSelector(todoListSelector) // lấy ra từ store để dùng
 
   console.log('todoList: ', todoList);
 
