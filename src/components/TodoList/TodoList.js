@@ -2,16 +2,19 @@ import { Button, Col, Input, Row, Select, Tag } from "antd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { addTodo } from "../../redux/actions";
+// import { addTodo } from "../../redux/actions";
 import { todoListRemainingSelector } from "../../redux/selectors";
 // import { todoListSelector } from '../../redux/selectors';
 import Todo from "../Todo/Todo";
+
+import todoListSlice from "./slideReducerTodoList";
 
 export default function TodoList() {
   const dispatch = useDispatch();
   const todoList = useSelector(todoListRemainingSelector); // lấy ra từ store để dùng
   // const todoList = useSelector(todoListSelector) // lấy ra từ store để dùng
-
+  // console.log(todoList);
+  
   const [todoName, setTodoName] = useState("");
   const [priority, setPriority] = useState("Medium");
   const handleInputChange = (e) => {
@@ -23,7 +26,7 @@ export default function TodoList() {
   };
   const handleAddButtonClick = () => {
     dispatch(
-      addTodo({
+      todoListSlice.actions.addTodo({
         id: uuidv4(),
         name: todoName,
         priority: priority,
@@ -31,6 +34,7 @@ export default function TodoList() {
       })
     );
     setTodoName("");
+    // setPriority('Medium');
   };
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>

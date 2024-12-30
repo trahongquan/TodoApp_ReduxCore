@@ -40,3 +40,8 @@ export const prioritiesFilterChange = (priorities) => {
         payload: priorities,
     }
 }
+
+/**
+ * Khi sử dụng Redux toolkit thì không cần dùng đến file này
+ * 
+*/

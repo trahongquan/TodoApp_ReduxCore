@@ -6,13 +6,18 @@
 //     return todoRemaining;
 // };
 
-import { createSelector } from "reselect";
+// import { createSelector } from "reselect";
+import { createSelector } from "@reduxjs/toolkit";
 
-const todoListSelector = (state) => state.todoList
+const todoListSelector = (state) => state.todoList //selector nhỏ
 const searchTextSelector = (state) => state.filters.search
 const statusSelector = (state) => state.filters.status
 const prioritiesSelector = (state) => state.filters.priorities
 
+// createSelector từ reduxjs/toolkit sẽ chỉ render lại phần Component có sự thay đổi 
+// khi đầu vào là các selector có sự thay đổi
+
+//Selector tổng hợp 
 export const todoListRemainingSelector = createSelector(
     todoListSelector,
     searchTextSelector,

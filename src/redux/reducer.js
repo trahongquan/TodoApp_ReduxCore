@@ -10,7 +10,7 @@ import todoListReducer from "../components/TodoList/slideReducerTodoList";
 // }
 /**
  * Sử dụng combineReducers của redux sẽ rút gọn code lại thành như dưới
- * 
+ * Khi sử dụng Redux toolkit thì không cần dùng đến file này 
 */
 const rootReducer = combineReducers({
     filters: filterReducer,
@@ -18,3 +18,8 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer;
+
+/**
+ * Khi sử dụng Redux toolkit thì không cần dùng đến file này
+ * 
+ */
